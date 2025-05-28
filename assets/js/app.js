@@ -8,7 +8,6 @@ async function displayUser(username) { /* correcion: la funcion debe ser async p
   $n.textContent = 'cargando...';
   const response = await fetch(`${usersEndpoint}/${username}`);
   const data = await response.json(); /* Correccion: se debe usar await para esperar la respuesta de la promesa y convertirla a json */
- /*  const data = await response.json() */; /* se ocupa convertir response a json y asignarlo a una variable */
   console.log(data);/* La variable data no esta declarada */
   $n.textContent = `${data.name}`; /* Correccion: se tiene que usar template literals (comillas invertidas ``) */
   $b.textContent = `${data.blog}`; /* Correccion: se tiene que usar template literals (comillas invertidas ``) */
@@ -18,7 +17,7 @@ async function displayUser(username) { /* correcion: la funcion debe ser async p
 function handleError(err) {
   console.log('OH NO!');
   console.log(err);
-  $n.textContent = `Algo salió mal: ${err}` ; /* Correccion: se debe usar $n en lugar de n para acceder al elemento */
+  $n.textContent = `Algo salió mal: ${err}`; /* Correccion: se debe usar $n en lugar de n para acceder al elemento */
 }
 
 displayUser('stolinski').catch(handleError);
